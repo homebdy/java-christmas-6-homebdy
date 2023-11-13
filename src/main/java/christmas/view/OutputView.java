@@ -15,4 +15,14 @@ public class OutputView {
     public void printOrderMenu() {
         System.out.println(OutputMessage.READ_MENU.getMessage());
     }
+
+    public void printExceptionMessage(String message) {
+        System.out.println();
+        System.out.println(message);
+        System.out.println();
+    }
+
+    public void printNewLine() {
+        System.out.println();
+    }
 }
