@@ -43,6 +43,11 @@ public class OutputView {
         System.out.println(bill.displayAfterDiscountAmount());
     }
 
+    public void printBadge(Bill bill) {
+        System.out.println(OutputMessage.EVENT_BADGE.getMessage());
+        System.out.println(bill.getBadge());
+    }
+
     public void printExceptionMessage(String message) {
         System.out.println();
         System.out.println(message);

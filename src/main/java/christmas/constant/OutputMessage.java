@@ -11,6 +11,7 @@ public enum OutputMessage {
     ORDER_MENU("<주문 메뉴>"),
     BENEFIT_AMOUNT("<총혜택 금액>"),
     AFTER_DISCOUNT("<할인 후 예상 결제 금액>"),
+    EVENT_BADGE("<12월 이벤트 배지>"),
     COUNT("개"),
     SPACE(" "),
     NEW_LINE("\n"),
