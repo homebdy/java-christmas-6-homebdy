@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.constant.Badge;
 import christmas.constant.OutputMessage;
 
 public class Bill {
@@ -24,5 +25,10 @@ public class Bill {
 
     public String displayAfterDiscountAmount() {
         return String.format(OutputMessage.AMOUNT.getMessage(), totalPrice - benefitAmount);
+    }
+
+    public String getBadge() {
+        Badge badge = Badge.getBadge(benefitAmount);
+        return badge.getName();
     }
 }
