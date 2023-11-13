@@ -27,4 +27,12 @@ public enum Calender {
                 .orElseThrow(() -> new IllegalStateException(ExceptionMessage.INVALID_DATE.getMessage()));
         return day != SATURDAY && day != FRIDAY;
     }
+
+    public static boolean isWeekend(int number) {
+        Calender day = Arrays.stream(Calender.values())
+                .filter(value -> value.elements.contains(number))
+                .findAny()
+                .orElseThrow(() -> new IllegalStateException(ExceptionMessage.INVALID_DATE.getMessage()));
+        return day == SATURDAY || day == FRIDAY;
+    }
 }

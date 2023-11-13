@@ -33,4 +33,8 @@ public class Date {
     public boolean isWeekDay() {
         return Calender.isWeekDay(value);
     }
+
+    public boolean isWeekend() {
+        return Calender.isWeekend(value);
+    }
 }

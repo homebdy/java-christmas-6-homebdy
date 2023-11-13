@@ -22,7 +22,11 @@ public class EventPlanner {
         return date.isWeekDay();
     }
 
-    public int getDissertCount() {
+    public boolean isWeekend() {
+        return date.isWeekend();
+    }
+
+    public int getDessertCount() {
         return orders.getDessertMenuCount();
     }
 
