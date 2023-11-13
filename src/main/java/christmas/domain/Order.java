@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.constant.Menu;
 import christmas.constant.OutputMessage;
 
 import java.util.Arrays;
@@ -10,13 +11,13 @@ public class Order {
     private static final String DELIMITER = "-";
     private static final int MENU_NAME = 0;
     private static final int MENU_QUANTITY = 1;
-    private final String name;
+    private final Menu menu;
     private final int quantity;
 
     public Order(String input) {
-        List<String> menu = splitInput(input);
-        this.name = menu.get(MENU_NAME);
-        this.quantity = Integer.parseInt(menu.get(MENU_QUANTITY));
+        List<String> order = splitInput(input);
+        this.menu = Menu.getMenu(order.get(MENU_NAME));
+        this.quantity = Integer.parseInt(order.get(MENU_QUANTITY));
     }
 
     private List<String> splitInput(String input) {
@@ -26,7 +27,7 @@ public class Order {
 
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name)
+        stringBuilder.append(menu.getName())
                 .append(OutputMessage.SPACE.getMessage())
                 .append(quantity)
                 .append(OutputMessage.COUNT.getMessage());
