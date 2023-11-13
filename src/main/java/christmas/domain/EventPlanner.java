@@ -18,6 +18,14 @@ public class EventPlanner {
         return date.getDifferenceDDay();
     }
 
+    public boolean isWeekDay() {
+        return date.isWeekDay();
+    }
+
+    public int getDissertCount() {
+        return orders.getDessertMenuCount();
+    }
+
     public Orders getOrders() {
         return orders;
     }
