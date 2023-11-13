@@ -1,10 +1,10 @@
 package christmas.controller;
 
 import christmas.domain.Date;
+import christmas.domain.Orders;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 public class ChristmasController {
@@ -15,7 +15,7 @@ public class ChristmasController {
     public void start() {
         outputView.printStartPlanner();
         Date date = readDate();
-        List<String> menus = readMenus();
+        Orders menus = readMenus();
     }
 
     private Date readDate() {
@@ -27,10 +27,10 @@ public class ChristmasController {
         });
     }
 
-    private List<String> readMenus() {
+    private Orders readMenus() {
         return attemptedRead(() -> {
             outputView.printOrderMenu();
-            List<String> menus = inputView.readMenu();
+            Orders menus = inputView.readMenu();
             outputView.printNewLine();
             return menus;
         });
