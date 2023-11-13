@@ -24,4 +24,8 @@ public class Date {
     public boolean isBeforeChristmas() {
         return START_DATE <= value && value <= D_DAY;
     }
+
+    public int getDifferenceDDay() {
+        return value - START_DATE;
+    }
 }
