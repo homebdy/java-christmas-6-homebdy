@@ -13,6 +13,12 @@ public class Orders {
         this.elements = new ArrayList<>(elements);
     }
 
+    public int getTotalPrice() {
+        return elements.stream()
+                .mapToInt(Order::getPrice)
+                .sum();
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         elements.forEach(element -> stringBuilder.append(element.display())

@@ -25,6 +25,11 @@ public class Order {
                 .toList();
     }
 
+    public int getPrice() {
+        int price = menu.getPrice();
+        return price * quantity;
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(menu.getName())
