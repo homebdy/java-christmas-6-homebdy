@@ -38,6 +38,10 @@ public enum Menu {
         return this.name;
     }
 
+    public boolean isDessert() {
+        return foodType.isDessert();
+    }
+
     public int getPrice() {
         return price;
     }

@@ -5,4 +5,8 @@ public enum FoodType {
     MAIN_MENU,
     DESSERT,
     BEVERAGE;
+
+    public boolean isDessert() {
+        return this == DESSERT;
+    }
 }

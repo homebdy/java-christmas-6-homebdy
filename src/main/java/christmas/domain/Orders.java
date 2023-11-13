@@ -19,6 +19,13 @@ public class Orders {
                 .sum();
     }
 
+    public int getDessertMenuCount() {
+        return elements.stream()
+                .filter(Order::isDessert)
+                .mapToInt(Order::getQuantity)
+                .sum();
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         elements.forEach(element -> stringBuilder.append(element.display())

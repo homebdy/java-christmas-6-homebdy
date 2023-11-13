@@ -30,6 +30,14 @@ public class Order {
         return price * quantity;
     }
 
+    public boolean isDessert() {
+        return menu.isDessert();
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(menu.getName())
