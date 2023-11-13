@@ -8,7 +8,7 @@ public class WeekdayDiscount implements DiscountPolicy {
     @Override
     public int getDiscountAmount(EventPlanner eventPlanner) {
         if (eventPlanner.isWeekDay()) {
-            discountAmount = eventPlanner.getDissertCount() * DISCOUNT_UNIT;
+            discountAmount = eventPlanner.getDessertCount() * DISCOUNT_UNIT;
         }
         return discountAmount;
     }
