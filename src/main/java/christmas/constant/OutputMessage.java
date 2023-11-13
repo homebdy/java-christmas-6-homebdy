@@ -9,9 +9,11 @@ public enum OutputMessage {
     AMOUNT_BEFORE_DISCOUNT("<할인 전 총주문 금액>"),
     AMOUNT("%,d원"),
     ORDER_MENU("<주문 메뉴>"),
+    BENEFIT_AMOUNT("<총혜택 금액>"),
     COUNT("개"),
     SPACE(" "),
-    NEW_LINE("\n");
+    NEW_LINE("\n"),
+    DISCOUNT_DISPLAY("-");
 
     private final String message;
 

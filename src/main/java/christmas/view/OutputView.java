@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.constant.OutputMessage;
+import christmas.domain.Bill;
 import christmas.domain.Orders;
 
 public class OutputView {
@@ -30,6 +31,11 @@ public class OutputView {
         System.out.println(OutputMessage.AMOUNT_BEFORE_DISCOUNT.getMessage());
         System.out.printf(OutputMessage.AMOUNT.getMessage(), orders.getTotalPrice());
         System.out.println();
+    }
+
+    public void printBenefit(Bill bill) {
+        System.out.println(OutputMessage.BENEFIT_AMOUNT.getMessage());
+        System.out.println(bill.displayBenefit());
     }
     public void printExceptionMessage(String message) {
         System.out.println();
