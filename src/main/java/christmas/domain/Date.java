@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.constant.Calender;
 import christmas.constant.ExceptionMessage;
 
 public class Date {
@@ -27,5 +28,9 @@ public class Date {
 
     public int getDifferenceDDay() {
         return value - START_DATE;
+    }
+
+    public boolean isWeekDay() {
+        return Calender.isWeekDay(value);
     }
 }
