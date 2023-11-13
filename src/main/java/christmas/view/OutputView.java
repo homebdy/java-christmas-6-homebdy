@@ -25,6 +25,12 @@ public class OutputView {
         System.out.println(OutputMessage.ORDER_MENU.getMessage());
         System.out.println(orders.display());
     }
+
+    public void printTotalPrice(Orders orders) {
+        System.out.println(OutputMessage.AMOUNT_BEFORE_DISCOUNT.getMessage());
+        System.out.printf(OutputMessage.AMOUNT.getMessage(), orders.getTotalPrice());
+        System.out.println();
+    }
     public void printExceptionMessage(String message) {
         System.out.println();
         System.out.println(message);
