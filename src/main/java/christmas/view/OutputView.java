@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.constant.OutputMessage;
+import christmas.domain.Orders;
 
 public class OutputView {
 
@@ -16,6 +17,14 @@ public class OutputView {
         System.out.println(OutputMessage.READ_MENU.getMessage());
     }
 
+    public void printEventPreview() {
+        System.out.println(OutputMessage.EVENT_PREVIEW.getMessage());
+    }
+
+    public void printOrderMenus(Orders orders) {
+        System.out.println(OutputMessage.ORDER_MENU.getMessage());
+        System.out.println(orders.display());
+    }
     public void printExceptionMessage(String message) {
         System.out.println();
         System.out.println(message);

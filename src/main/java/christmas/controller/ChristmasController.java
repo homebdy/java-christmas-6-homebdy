@@ -2,6 +2,7 @@ package christmas.controller;
 
 import christmas.domain.Date;
 import christmas.domain.Orders;
+import christmas.service.OrderService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -15,7 +16,10 @@ public class ChristmasController {
     public void start() {
         outputView.printStartPlanner();
         Date date = readDate();
-        Orders menus = readMenus();
+        OrderService orderService = new OrderService(readMenus());
+        outputView.printEventPreview();
+        outputView.printNewLine();
+        outputView.printOrderMenus(orderService.getOrders());
     }
 
     private Date readDate() {
@@ -30,9 +34,7 @@ public class ChristmasController {
     private Orders readMenus() {
         return attemptedRead(() -> {
             outputView.printOrderMenu();
-            Orders menus = inputView.readMenu();
-            outputView.printNewLine();
-            return menus;
+            return inputView.readMenu();
         });
     }
 

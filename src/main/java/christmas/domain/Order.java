@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.constant.OutputMessage;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,5 +22,14 @@ public class Order {
     private List<String> splitInput(String input) {
         return Arrays.stream(input.split(DELIMITER))
                 .toList();
+    }
+
+    public String display() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(name)
+                .append(OutputMessage.SPACE.getMessage())
+                .append(quantity)
+                .append(OutputMessage.COUNT.getMessage());
+        return stringBuilder.toString();
     }
 }

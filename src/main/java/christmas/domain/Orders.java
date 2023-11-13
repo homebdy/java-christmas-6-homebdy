@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.constant.OutputMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,5 +11,12 @@ public class Orders {
 
     public Orders(List<Order> elements) {
         this.elements = new ArrayList<>(elements);
+    }
+
+    public String display() {
+        StringBuilder stringBuilder = new StringBuilder();
+        elements.forEach(element -> stringBuilder.append(element.display())
+                .append(OutputMessage.NEW_LINE.getMessage()));
+        return stringBuilder.toString();
     }
 }
