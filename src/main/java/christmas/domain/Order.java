@@ -34,6 +34,10 @@ public class Order {
         return menu.isDessert();
     }
 
+    public boolean isMainMenu() {
+        return menu.isMainMenu();
+    }
+
     public int getQuantity() {
         return quantity;
     }

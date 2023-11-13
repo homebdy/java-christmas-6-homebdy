@@ -30,6 +30,10 @@ public class EventPlanner {
         return orders.getDessertMenuCount();
     }
 
+    public int getMainMenuCount() {
+        return orders.getMainMenuCount();
+    }
+
     public Orders getOrders() {
         return orders;
     }

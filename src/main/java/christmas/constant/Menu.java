@@ -42,6 +42,10 @@ public enum Menu {
         return foodType.isDessert();
     }
 
+    public boolean isMainMenu() {
+        return foodType.isMainMenu();
+    }
+
     public int getPrice() {
         return price;
     }
