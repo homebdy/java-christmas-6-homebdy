@@ -2,11 +2,11 @@ package christmas.service;
 
 import christmas.domain.Orders;
 
-public class OrderService {
+public class ChristmasService {
 
     private final Orders orders;
 
-    public OrderService(Orders orders) {
+    public ChristmasService(Orders orders) {
         this.orders = orders;
     }
 
