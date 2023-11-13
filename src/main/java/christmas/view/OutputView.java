@@ -11,4 +11,8 @@ public class OutputView {
     public void printVisitDate() {
         System.out.println(OutputMessage.READ_VISIT_DATE.getMessage());
     }
+
+    public void printOrderMenu() {
+        System.out.println(OutputMessage.READ_MENU.getMessage());
+    }
 }
