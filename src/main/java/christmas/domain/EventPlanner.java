@@ -26,6 +26,10 @@ public class EventPlanner {
         return date.isWeekend();
     }
 
+    public boolean isSpecialDay() {
+        return date.isSpecialDay();
+    }
+
     public int getDessertCount() {
         return orders.getDessertMenuCount();
     }

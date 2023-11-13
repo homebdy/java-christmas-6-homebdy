@@ -2,6 +2,7 @@ package christmas.domain;
 
 import christmas.constant.Calender;
 import christmas.constant.ExceptionMessage;
+import christmas.constant.SpecialDay;
 
 public class Date {
 
@@ -36,5 +37,9 @@ public class Date {
 
     public boolean isWeekend() {
         return Calender.isWeekend(value);
+    }
+
+    public boolean isSpecialDay() {
+        return SpecialDay.isSpecialDay(value);
     }
 }
