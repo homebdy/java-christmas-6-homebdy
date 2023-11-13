@@ -37,6 +37,12 @@ public class OutputView {
         System.out.println(OutputMessage.BENEFIT_AMOUNT.getMessage());
         System.out.println(bill.displayBenefit());
     }
+
+    public void printAfterDiscount(Bill bill) {
+        System.out.println(OutputMessage.AFTER_DISCOUNT.getMessage());
+        System.out.println(bill.displayAfterDiscountAmount());
+    }
+
     public void printExceptionMessage(String message) {
         System.out.println();
         System.out.println(message);

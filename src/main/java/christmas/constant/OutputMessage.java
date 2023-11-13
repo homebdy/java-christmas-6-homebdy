@@ -10,6 +10,7 @@ public enum OutputMessage {
     AMOUNT("%,d원"),
     ORDER_MENU("<주문 메뉴>"),
     BENEFIT_AMOUNT("<총혜택 금액>"),
+    AFTER_DISCOUNT("<할인 후 예상 결제 금액>"),
     COUNT("개"),
     SPACE(" "),
     NEW_LINE("\n"),

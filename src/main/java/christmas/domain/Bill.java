@@ -21,4 +21,8 @@ public class Bill {
                 .append(String.format(OutputMessage.AMOUNT.getMessage(), benefitAmount));
         return sb.toString();
     }
+
+    public String displayAfterDiscountAmount() {
+        return String.format(OutputMessage.AMOUNT.getMessage(), totalPrice - benefitAmount);
+    }
 }
