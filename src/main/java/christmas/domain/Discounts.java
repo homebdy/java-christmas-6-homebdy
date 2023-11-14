@@ -35,7 +35,7 @@ public class Discounts {
             return OutputMessage.NOTHING.getMessage();
         }
         StringBuilder stringBuilder = new StringBuilder();
-        appendDDayDiscout(stringBuilder);
+        appendDDayDiscount(stringBuilder);
         appendWeekdayDiscount(stringBuilder);
         appendWeekendDiscount(stringBuilder);
         appendSpecialDiscount(stringBuilder);
@@ -48,7 +48,7 @@ public class Discounts {
                 || specialDiscount.isApply() || giftDiscount.isApply();
     }
 
-    private void appendDDayDiscout(StringBuilder stringBuilder) {
+    private void appendDDayDiscount(StringBuilder stringBuilder) {
         if (dDayDiscount.isApply()) {
             stringBuilder.append(dDayDiscount.display());
         }
