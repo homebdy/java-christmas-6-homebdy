@@ -5,15 +5,15 @@ import christmas.constant.OutputMessage;
 
 public class Bill {
 
-    private final int totalPrice;
+    private final EventPlanner eventPlanner;
     private int benefitAmount = 0;
 
-    public Bill(int totalPrice) {
-        this.totalPrice = totalPrice;
+    public Bill(EventPlanner eventPlanner) {
+        this.eventPlanner = eventPlanner;
     }
 
-    public void applyDiscount(DiscountPolicy discountPolicy, EventPlanner planner) {
-        benefitAmount += discountPolicy.getDiscountAmount(planner);
+    public void applyDiscount(DiscountPolicy discountPolicy) {
+        benefitAmount += discountPolicy.getDiscountAmount(eventPlanner);
     }
 
     public String displayBenefit() {
@@ -24,7 +24,7 @@ public class Bill {
     }
 
     public String displayAfterDiscountAmount() {
-        return String.format(OutputMessage.AMOUNT.getMessage(), totalPrice - benefitAmount);
+        return String.format(OutputMessage.AMOUNT.getMessage(), eventPlanner.getTotalPriceIncludeGift() - benefitAmount);
     }
 
     public String getBadge() {
