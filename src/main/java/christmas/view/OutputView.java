@@ -3,6 +3,7 @@ package christmas.view;
 import christmas.constant.OutputMessage;
 import christmas.domain.Bill;
 import christmas.domain.Discounts;
+import christmas.domain.Gift;
 import christmas.domain.Orders;
 
 public class OutputView {
@@ -52,6 +53,11 @@ public class OutputView {
     public void printBadge(Bill bill) {
         System.out.println(OutputMessage.EVENT_BADGE.getMessage());
         System.out.println(bill.getBadge());
+    }
+
+    public void printGift(Gift gift) {
+        System.out.println(OutputMessage.GIFT_MENU.getMessage());
+        System.out.println(gift.display());
     }
 
     public void printExceptionMessage(String message) {
