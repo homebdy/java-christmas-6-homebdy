@@ -4,5 +4,7 @@ public interface DiscountPolicy {
 
     int getDiscountAmount(EventPlanner eventPlanner);
 
-    int display();
+    boolean isApply();
+
+    String display();
 }
