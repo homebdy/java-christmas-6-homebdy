@@ -2,6 +2,7 @@ package christmas.domain;
 
 public class EventPlanner {
 
+    private static final int GIFT_AMOUNT = 120000;
     private final Orders orders;
     private final Date date;
 
@@ -28,6 +29,10 @@ public class EventPlanner {
 
     public boolean isSpecialDay() {
         return date.isSpecialDay();
+    }
+
+    public boolean isGift() {
+        return orders.isOverThan(GIFT_AMOUNT);
     }
 
     public int getDessertCount() {

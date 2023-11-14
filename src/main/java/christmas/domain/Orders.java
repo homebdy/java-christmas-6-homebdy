@@ -33,6 +33,10 @@ public class Orders {
                 .sum();
     }
 
+    public boolean isOverThan(int amount) {
+        return getTotalPrice() >= amount;
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         elements.forEach(element -> stringBuilder.append(element.display())
