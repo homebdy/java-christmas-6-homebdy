@@ -9,9 +9,9 @@ public class WeekendDiscount implements DiscountPolicy {
     private int discountAmount = DEFAULT_COUNT;
 
     @Override
-    public int getDiscountAmount(EventPlanner eventPlanner) {
-        if (eventPlanner.isWeekend()) {
-            discountAmount = eventPlanner.getMainMenuCount() * DISCOUNT_UNIT;
+    public int getDiscountAmount(Orders orders) {
+        if (orders.isWeekend()) {
+            discountAmount = orders.getMainMenuCount() * DISCOUNT_UNIT;
         }
         return discountAmount;
     }

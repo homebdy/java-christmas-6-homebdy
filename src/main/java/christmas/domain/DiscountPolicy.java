@@ -2,7 +2,7 @@ package christmas.domain;
 
 public interface DiscountPolicy {
 
-    int getDiscountAmount(EventPlanner eventPlanner);
+    int getDiscountAmount(Orders orders);
 
     boolean isApply();
 

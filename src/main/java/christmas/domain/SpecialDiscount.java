@@ -9,8 +9,8 @@ public class SpecialDiscount implements DiscountPolicy {
     private int discountAmount = 0;
 
     @Override
-    public int getDiscountAmount(EventPlanner eventPlanner) {
-        if (eventPlanner.isSpecialDay()) {
+    public int getDiscountAmount(Orders orders) {
+        if (orders.isSpecialDay()) {
             discountAmount = DISCOUNT_PRICE;
         }
         return discountAmount;

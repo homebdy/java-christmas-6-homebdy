@@ -10,9 +10,9 @@ public class DDayDiscount implements DiscountPolicy {
     private int discountAmount = 0;
 
     @Override
-    public int getDiscountAmount(EventPlanner planner) {
-        if (planner.isBeforeDDay()) {
-            discountAmount = calculateDiscountAmount(planner.getDifferenceDate());
+    public int getDiscountAmount(Orders orders) {
+        if (orders.isBeforeDDay()) {
+            discountAmount = calculateDiscountAmount(orders.getDifferenceDate());
         }
         return discountAmount;
     }
