@@ -8,6 +8,8 @@ import java.util.List;
 
 public class Orders {
 
+    private static final int MAX_COUNT = 20;
+    private static final int DEFAULT_COUNT = 0;
     private final List<Order> elements;
 
     public Orders(List<Order> elements) {
@@ -17,6 +19,7 @@ public class Orders {
 
     private void validate(List<Order> elements) {
         validateIsOnlyBeverage(elements);
+        validateMaxOrder(elements);
     }
 
     private void validateIsOnlyBeverage(List<Order> elements) {
@@ -24,7 +27,16 @@ public class Orders {
                 .filter(Order::isNotBeverage)
                 .toList()
                 .size();
-        if (notBeverageMenuCount == 0) {
+        if (notBeverageMenuCount == DEFAULT_COUNT) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
+        }
+    }
+
+    private void validateMaxOrder(List<Order> elements) {
+        int totalCount = elements.stream()
+                .mapToInt(Order::getQuantity)
+                .sum();
+        if (totalCount > MAX_COUNT) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
         }
     }
