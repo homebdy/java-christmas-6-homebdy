@@ -1,8 +1,8 @@
 package christmas.view;
 
 import christmas.constant.OutputMessage;
-import christmas.domain.Bill;
 import christmas.domain.Discounts;
+import christmas.domain.EventPlanner;
 import christmas.domain.Gift;
 import christmas.domain.Orders;
 
@@ -41,19 +41,19 @@ public class OutputView {
         System.out.println(discounts.display());
     }
 
-    public void printBenefit(Bill bill) {
+    public void printBenefit(EventPlanner planner) {
         System.out.println(OutputMessage.BENEFIT_AMOUNT.getMessage());
-        System.out.println(bill.displayBenefit());
+        System.out.println(planner.displayBenefit());
     }
 
-    public void printAfterDiscount(Bill bill) {
+    public void printAfterDiscount(EventPlanner planner) {
         System.out.println(OutputMessage.AFTER_DISCOUNT.getMessage());
-        System.out.println(bill.displayAfterDiscountAmount());
+        System.out.println(planner.displayAfterDiscountAmount());
     }
 
-    public void printBadge(Bill bill) {
+    public void printBadge(EventPlanner planner) {
         System.out.println(OutputMessage.EVENT_BADGE.getMessage());
-        System.out.println(bill.getBadge());
+        System.out.println(planner.getBadge());
     }
 
     public void printGift(Gift gift) {

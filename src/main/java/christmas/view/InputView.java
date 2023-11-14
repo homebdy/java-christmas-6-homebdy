@@ -3,10 +3,10 @@ package christmas.view;
 import camp.nextstep.edu.missionutils.Console;
 import christmas.domain.Date;
 import christmas.domain.Order;
-import christmas.domain.Orders;
 import christmas.validator.InputValidator;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
 
@@ -20,11 +20,11 @@ public class InputView {
         return new Date(Integer.parseInt(input));
     }
 
-    public Orders readMenu() {
+    public List<Order> readMenu() {
         String input = Console.readLine();
         validator.validateDelimiter(input);
-        return new Orders(Arrays.stream(input.split(MENU_REGEX))
+        return Arrays.stream(input.split(MENU_REGEX))
                 .map(Order::new)
-                .toList());
+                .toList();
     }
 }

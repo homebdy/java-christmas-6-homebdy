@@ -1,60 +1,27 @@
 package christmas.domain;
 
+import christmas.constant.Badge;
+import christmas.constant.OutputMessage;
+
 public class EventPlanner {
 
+    private static final int DEFAULT_COUNT = 0;
     private static final int GIFT_AMOUNT = 120000;
     private final Orders orders;
-    private final Date date;
     private final Gift gift;
+    private int benefitAmount = 0;
 
-    public EventPlanner(Orders orders, Date date, Gift gift) {
+    public EventPlanner(Orders orders, Gift gift) {
         this.orders = orders;
-        this.date = date;
         this.gift = gift;
     }
 
-    public boolean isBeforeDDay() {
-        return date.isBeforeChristmas();
+    public void applyDiscount(DiscountPolicy discountPolicy) {
+        benefitAmount += discountPolicy.getDiscountAmount(orders);
     }
 
-    public int getDifferenceDate() {
-        return date.getDifferenceDDay();
-    }
-
-    public boolean isWeekDay() {
-        return date.isWeekDay();
-    }
-
-    public boolean isWeekend() {
-        return date.isWeekend();
-    }
-
-    public boolean isSpecialDay() {
-        return date.isSpecialDay();
-    }
-
-    public boolean isGift() {
-        return orders.isOverThan(GIFT_AMOUNT);
-    }
-
-    public void addGift() {
-        gift.addGift();
-    }
-
-    public int getGiftPrice() {
-        return gift.getGiftPrice();
-    }
-
-    public int getTotalPriceIncludeGift() {
+    private int getTotalPriceIncludeGift() {
         return orders.getTotalPrice() + gift.getGiftPrice();
-    }
-
-    public int getDessertCount() {
-        return orders.getDessertMenuCount();
-    }
-
-    public int getMainMenuCount() {
-        return orders.getMainMenuCount();
     }
 
     public Orders getOrders() {
@@ -63,5 +30,25 @@ public class EventPlanner {
 
     public Gift getGift() {
         return gift;
+    }
+
+    public String displayBenefit() {
+        StringBuilder sb = new StringBuilder();
+        if (benefitAmount == DEFAULT_COUNT) {
+            sb.append(DEFAULT_COUNT);
+            return sb.toString();
+        }
+        sb.append(OutputMessage.DISCOUNT_DISPLAY.getMessage())
+                .append(String.format(OutputMessage.AMOUNT.getMessage(), benefitAmount));
+        return sb.toString();
+    }
+
+    public String displayAfterDiscountAmount() {
+        return String.format(OutputMessage.AMOUNT.getMessage(), getTotalPriceIncludeGift() - benefitAmount);
+    }
+
+    public String getBadge() {
+        Badge badge = Badge.getBadge(benefitAmount);
+        return badge.getName();
     }
 }

@@ -1,11 +1,12 @@
 package christmas.controller;
 
 import christmas.domain.Date;
-import christmas.domain.Orders;
+import christmas.domain.Order;
 import christmas.service.ChristmasService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public class ChristmasController {
@@ -26,7 +27,7 @@ public class ChristmasController {
         });
     }
 
-    private Orders readMenus() {
+    private List<Order> readMenus() {
         return attemptedRead(() -> {
             outputView.printOrderMenu();
             return inputView.readMenu();
@@ -39,9 +40,9 @@ public class ChristmasController {
         outputView.printTotalPrice(service.getOrders());
         outputView.printGift(service.getGift());
         outputView.printBenefitContent(service.getDiscounts());
-        outputView.printBenefit(service.getBill());
-        outputView.printAfterDiscount(service.getBill());
-        outputView.printBadge(service.getBill());
+        outputView.printBenefit(service.getEventPlanner());
+        outputView.printAfterDiscount(service.getEventPlanner());
+        outputView.printBadge(service.getEventPlanner());
     }
 
     private <T> T attemptedRead(Supplier<T> supplier) {

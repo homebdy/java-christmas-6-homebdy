@@ -12,10 +12,12 @@ public class Orders {
 
     private static final int MAX_COUNT = 20;
     private static final int DEFAULT_COUNT = 0;
+    private final Date date;
     private final List<Order> elements;
 
-    public Orders(List<Order> elements) {
+    public Orders(Date date, List<Order> elements) {
         validate(elements);
+        this.date = date;
         this.elements = new ArrayList<>(elements);
     }
 
@@ -73,8 +75,24 @@ public class Orders {
                 .sum();
     }
 
-    public boolean isOverThan(int amount) {
-        return getTotalPrice() >= amount;
+    public boolean isBeforeDDay() {
+        return date.isBeforeChristmas();
+    }
+
+    public int getDifferenceDate() {
+        return date.getDifferenceDDay();
+    }
+
+    public boolean isWeekDay() {
+        return date.isWeekDay();
+    }
+
+    public boolean isWeekend() {
+        return date.isWeekend();
+    }
+
+    public boolean isSpecialDay() {
+        return date.isSpecialDay();
     }
 
     public String display() {
