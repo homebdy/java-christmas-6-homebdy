@@ -31,6 +31,7 @@ public class Discounts {
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(dDayDiscount.display());
+        stringBuilder.append(giftDiscount.display());
         return stringBuilder.toString();
     }
 }

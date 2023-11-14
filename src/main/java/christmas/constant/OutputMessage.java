@@ -12,6 +12,7 @@ public enum OutputMessage {
     BENEFIT_AMOUNT("<총혜택 금액>"),
     BENEFIT_CONTENT("<혜택 내역>"),
     D_DAY_DISCOUNT("크리스마스 디데이 할인: -"),
+    PRESENT_DISCOUNT("증정 이벤트: -"),
     AFTER_DISCOUNT("<할인 후 예상 결제 금액>"),
     EVENT_BADGE("<12월 이벤트 배지>"),
     COUNT("개"),
