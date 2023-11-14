@@ -46,6 +46,10 @@ public class Order {
         return quantity;
     }
 
+    public String getMenuName() {
+        return menu.getName();
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(menu.getName())

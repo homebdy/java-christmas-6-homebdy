@@ -4,7 +4,9 @@ import christmas.constant.ExceptionMessage;
 import christmas.constant.OutputMessage;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Orders {
 
@@ -20,6 +22,7 @@ public class Orders {
     private void validate(List<Order> elements) {
         validateIsOnlyBeverage(elements);
         validateMaxOrder(elements);
+        validateDuplicateMenu(elements);
     }
 
     private void validateIsOnlyBeverage(List<Order> elements) {
@@ -28,6 +31,15 @@ public class Orders {
                 .toList()
                 .size();
         if (notBeverageMenuCount == DEFAULT_COUNT) {
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
+        }
+    }
+
+    private void validateDuplicateMenu(List<Order> elements) {
+        Set<String> notDuplicateElements = new HashSet<>(elements.stream()
+                .map(Order::getMenuName)
+                .toList());
+        if (notDuplicateElements.size() != elements.size()) {
             throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
         }
     }
