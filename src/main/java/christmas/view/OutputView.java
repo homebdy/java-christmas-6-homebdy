@@ -59,7 +59,6 @@ public class OutputView {
     public void printGift(Gift gift) {
         System.out.println(OutputMessage.GIFT_MENU.getMessage());
         System.out.println(gift.display());
-        System.out.println();
     }
 
     public void printExceptionMessage(String message) {

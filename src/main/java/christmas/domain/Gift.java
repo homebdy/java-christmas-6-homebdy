@@ -35,6 +35,7 @@ public class Gift {
         return menu.getName() +
                 OutputMessage.SPACE.getMessage() +
                 quantity +
-                OutputMessage.COUNT.getMessage();
+                OutputMessage.COUNT.getMessage() +
+                OutputMessage.NEW_LINE.getMessage();
     }
 }

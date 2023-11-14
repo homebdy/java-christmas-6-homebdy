@@ -40,7 +40,7 @@ public class EventPlanner {
     public String displayBenefit() {
         StringBuilder sb = new StringBuilder();
         if (benefitAmount == DEFAULT_COUNT) {
-            sb.append(DEFAULT_COUNT);
+            sb.append(DEFAULT_COUNT).append(OutputMessage.NEW_LINE.getMessage());
             return sb.toString();
         }
         sb.append(OutputMessage.DISCOUNT_DISPLAY.getMessage())
