@@ -95,6 +95,10 @@ public class Orders {
         return date.isSpecialDay();
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public String display() {
         StringBuilder stringBuilder = new StringBuilder();
         elements.forEach(element -> stringBuilder.append(element.display())

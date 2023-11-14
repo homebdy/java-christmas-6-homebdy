@@ -42,4 +42,8 @@ public class Date {
     public boolean isSpecialDay() {
         return SpecialDay.isSpecialDay(value);
     }
+
+    public int getValue() {
+        return value;
+    }
 }

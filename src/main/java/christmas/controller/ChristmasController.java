@@ -35,7 +35,7 @@ public class ChristmasController {
     }
 
     private void printResult(ChristmasService service) {
-        outputView.printEventPreview();
+        outputView.printEventPreview(service.getDate());
         outputView.printOrderMenus(service.getOrders());
         outputView.printTotalPrice(service.getOrders());
         outputView.printGift(service.getGift());

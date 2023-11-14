@@ -1,10 +1,7 @@
 package christmas.view;
 
 import christmas.constant.OutputMessage;
-import christmas.domain.Discounts;
-import christmas.domain.EventPlanner;
-import christmas.domain.Gift;
-import christmas.domain.Orders;
+import christmas.domain.*;
 
 public class OutputView {
 
@@ -20,8 +17,8 @@ public class OutputView {
         System.out.println(OutputMessage.READ_MENU.getMessage());
     }
 
-    public void printEventPreview() {
-        System.out.println(OutputMessage.EVENT_PREVIEW.getMessage());
+    public void printEventPreview(Date date) {
+        System.out.printf(OutputMessage.EVENT_PREVIEW.getMessage(), date.getValue());
         System.out.println();
     }
 

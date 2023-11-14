@@ -38,4 +38,8 @@ public class ChristmasService {
     public Gift getGift() {
         return eventPlanner.getGift();
     }
+
+    public Date getDate() {
+        return eventPlanner.getDate();
+    }
 }

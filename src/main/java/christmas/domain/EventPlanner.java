@@ -56,4 +56,8 @@ public class EventPlanner {
         Badge badge = Badge.getBadge(benefitAmount);
         return badge.getName();
     }
+
+    public Date getDate() {
+        return orders.getDate();
+    }
 }
