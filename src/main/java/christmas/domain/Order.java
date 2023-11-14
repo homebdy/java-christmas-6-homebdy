@@ -1,10 +1,12 @@
 package christmas.domain;
 
+import christmas.constant.ExceptionMessage;
 import christmas.constant.Menu;
 import christmas.constant.OutputMessage;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Order {
 
@@ -21,9 +23,20 @@ public class Order {
     }
 
     private List<String> splitInput(String input) {
-        return Arrays.stream(input.split(DELIMITER))
+        List<String> order = Arrays.stream(input.split(DELIMITER))
                 .toList();
+        validateNumber(order.get(MENU_QUANTITY));
+        return order;
     }
+
+    public void validateNumber(String input) {
+        String NUMBER_REGEXP = "^\\d*$";
+        if(!Pattern.matches(NUMBER_REGEXP, input)) {
+            ExceptionMessage message = ExceptionMessage.INVALID_MENU;
+            throw new IllegalArgumentException(message.getMessage());
+        }
+    }
+
 
     public int getPrice() {
         int price = menu.getPrice();
