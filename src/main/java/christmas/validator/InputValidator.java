@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class InputValidator {
 
     private static final String NUMBER_REGEXP = "^\\d*$";
-    private static final String DELIMITER_REGEXP = "^[a-zA-Zㄱ-힣0-9,-]*$";
+    private static final String DELIMITER_REGEXP = "^([a-zA-Zㄱ-힣]*-[\\d]*,)*([a-zA-Zㄱ-힣]*-[\\d]*)$";
 
     public void validateNumber(String input) {
         if(!Pattern.matches(NUMBER_REGEXP, input)) {
