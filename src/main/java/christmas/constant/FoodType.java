@@ -13,4 +13,8 @@ public enum FoodType {
     public boolean isMainMenu() {
         return this == MAIN_MENU;
     }
+
+    public boolean isBeverage() {
+        return this == BEVERAGE;
+    }
 }

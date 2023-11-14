@@ -38,6 +38,10 @@ public class Order {
         return menu.isMainMenu();
     }
 
+    public boolean isNotBeverage() {
+        return !menu.isBeverage();
+    }
+
     public int getQuantity() {
         return quantity;
     }
