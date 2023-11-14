@@ -5,6 +5,7 @@ import christmas.constant.OutputMessage;
 
 public class Bill {
 
+    private static final int DEFAULT_COUNT = 0;
     private final EventPlanner eventPlanner;
     private int benefitAmount = 0;
 
@@ -18,6 +19,10 @@ public class Bill {
 
     public String displayBenefit() {
         StringBuilder sb = new StringBuilder();
+        if (benefitAmount == DEFAULT_COUNT) {
+            sb.append(DEFAULT_COUNT);
+            return sb.toString();
+        }
         sb.append(OutputMessage.DISCOUNT_DISPLAY.getMessage())
                 .append(String.format(OutputMessage.AMOUNT.getMessage(), benefitAmount));
         return sb.toString();
