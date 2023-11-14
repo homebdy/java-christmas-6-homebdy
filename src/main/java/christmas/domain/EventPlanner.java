@@ -60,4 +60,8 @@ public class EventPlanner {
     public Orders getOrders() {
         return orders;
     }
+
+    public Gift getGift() {
+        return gift;
+    }
 }

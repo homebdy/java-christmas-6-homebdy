@@ -15,19 +15,14 @@ public class ChristmasController {
 
     public void start() {
         outputView.printStartPlanner();
-        Date date = readDate();
-        ChristmasService orderService = new ChristmasService(readMenus());
-        outputView.printEventPreview();
-        outputView.printNewLine();
-        outputView.printOrderMenus(orderService.getOrders());
+        ChristmasService service = new ChristmasService(readDate(), readMenus());
+        printResult(service);
     }
 
     private Date readDate() {
         return attemptedRead(() -> {
             outputView.printVisitDate();
-            Date date = inputView.readDate();
-            outputView.printNewLine();
-            return date;
+            return inputView.readDate();
         });
     }
 
@@ -36,6 +31,17 @@ public class ChristmasController {
             outputView.printOrderMenu();
             return inputView.readMenu();
         });
+    }
+
+    private void printResult(ChristmasService service) {
+        outputView.printEventPreview();
+        outputView.printOrderMenus(service.getOrders());
+        outputView.printTotalPrice(service.getOrders());
+        outputView.printGift(service.getGift());
+        outputView.printBenefitContent(service.getDiscounts());
+        outputView.printBenefit(service.getBill());
+        outputView.printAfterDiscount(service.getBill());
+        outputView.printBadge(service.getBill());
     }
 
     private <T> T attemptedRead(Supplier<T> supplier) {

@@ -22,6 +22,7 @@ public class OutputView {
 
     public void printEventPreview() {
         System.out.println(OutputMessage.EVENT_PREVIEW.getMessage());
+        System.out.println();
     }
 
     public void printOrderMenus(Orders orders) {
@@ -58,15 +59,12 @@ public class OutputView {
     public void printGift(Gift gift) {
         System.out.println(OutputMessage.GIFT_MENU.getMessage());
         System.out.println(gift.display());
+        System.out.println();
     }
 
     public void printExceptionMessage(String message) {
         System.out.println();
         System.out.println(message);
-        System.out.println();
-    }
-
-    public void printNewLine() {
         System.out.println();
     }
 }
