@@ -4,22 +4,21 @@ import christmas.constant.OutputMessage;
 
 public class WeekdayDiscount implements DiscountPolicy {
 
+    private static final int DEFAULT_COUNT = 0;
     private static final int DISCOUNT_UNIT = 2023;
-    private int discountAmount = 0;
-    private boolean isApply = false;
+    private int discountAmount = DEFAULT_COUNT;
 
     @Override
     public int getDiscountAmount(EventPlanner eventPlanner) {
         if (eventPlanner.isWeekDay()) {
             discountAmount = eventPlanner.getDessertCount() * DISCOUNT_UNIT;
-            isApply = true;
         }
         return discountAmount;
     }
 
     @Override
     public boolean isApply() {
-        return isApply;
+        return discountAmount != DEFAULT_COUNT;
     }
 
     @Override

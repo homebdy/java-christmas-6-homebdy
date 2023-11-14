@@ -4,24 +4,22 @@ import christmas.constant.OutputMessage;
 
 public class DDayDiscount implements DiscountPolicy {
 
+    private static final int DEFAULT_COUNT = 0;
     private static final int BASE_DISCOUNT_AMOUNT = 1000;
     private static final int INCREASE_AMOUNT = 100;
     private int discountAmount = 0;
-    private boolean isApply = false;
-
 
     @Override
     public int getDiscountAmount(EventPlanner planner) {
         if (planner.isBeforeDDay()) {
             discountAmount = calculateDiscountAmount(planner.getDifferenceDate());
-            isApply = true;
         }
         return discountAmount;
     }
 
     @Override
     public boolean isApply() {
-        return isApply;
+        return discountAmount != DEFAULT_COUNT;
     }
 
     private int calculateDiscountAmount(int day) {

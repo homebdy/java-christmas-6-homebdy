@@ -4,22 +4,21 @@ import christmas.constant.OutputMessage;
 
 public class GiftDiscount implements DiscountPolicy {
 
+    private static final int DEFAULT_COUNT = 0;
     private int discountAmount = 0;
-    private boolean isApply = false;
 
     @Override
     public int getDiscountAmount(EventPlanner eventPlanner) {
         if (eventPlanner.isGift()) {
             eventPlanner.addGift();
             discountAmount = eventPlanner.getGiftPrice();
-            isApply = true;
         }
         return discountAmount;
     }
 
     @Override
     public boolean isApply() {
-        return isApply;
+        return discountAmount != DEFAULT_COUNT;
     }
 
     @Override
