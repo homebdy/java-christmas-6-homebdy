@@ -5,10 +5,12 @@ public class EventPlanner {
     private static final int GIFT_AMOUNT = 120000;
     private final Orders orders;
     private final Date date;
+    private final Gift gift;
 
-    public EventPlanner(Orders orders, Date date) {
+    public EventPlanner(Orders orders, Date date, Gift gift) {
         this.orders = orders;
         this.date = date;
+        this.gift = gift;
     }
 
     public boolean isBeforeDDay() {
@@ -33,6 +35,18 @@ public class EventPlanner {
 
     public boolean isGift() {
         return orders.isOverThan(GIFT_AMOUNT);
+    }
+
+    public void addGift() {
+        gift.addGift();
+    }
+
+    public int getGiftPrice() {
+        return gift.getGiftPrice();
+    }
+
+    public int getTotalPriceIncludeGift() {
+        return orders.getTotalPrice() + gift.getGiftPrice();
     }
 
     public int getDessertCount() {
