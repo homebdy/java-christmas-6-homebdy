@@ -2,14 +2,12 @@ package christmas.service;
 
 import christmas.domain.*;
 
-import java.util.List;
-
 public class ChristmasService {
 
     private final EventPlanner eventPlanner;
     private final Discounts discounts;
 
-    public ChristmasService(Date date, List<Order> orders) {
+    public ChristmasService(Date date, OrderMenus orders) {
         this.eventPlanner = new EventPlanner(new Orders(date, orders));
         this.discounts = new Discounts();
         applyEvent();

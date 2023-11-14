@@ -1,12 +1,11 @@
 package christmas.controller;
 
 import christmas.domain.Date;
-import christmas.domain.Order;
+import christmas.domain.OrderMenus;
 import christmas.service.ChristmasService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 public class ChristmasController {
@@ -27,7 +26,7 @@ public class ChristmasController {
         });
     }
 
-    private List<Order> readMenus() {
+    private OrderMenus readMenus() {
         return attemptedRead(() -> {
             outputView.printOrderMenu();
             return inputView.readMenu();

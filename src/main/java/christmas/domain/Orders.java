@@ -1,58 +1,18 @@
 package christmas.domain;
 
-import christmas.constant.ExceptionMessage;
 import christmas.constant.OutputMessage;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Orders {
 
-    private static final int MAX_COUNT = 20;
-    private static final int DEFAULT_COUNT = 0;
     private final Date date;
     private final List<Order> elements;
 
-    public Orders(Date date, List<Order> elements) {
-        validate(elements);
+    public Orders(Date date, OrderMenus orderMenus) {
         this.date = date;
-        this.elements = new ArrayList<>(elements);
-    }
-
-    private void validate(List<Order> elements) {
-        validateIsOnlyBeverage(elements);
-        validateMaxOrder(elements);
-        validateDuplicateMenu(elements);
-    }
-
-    private void validateIsOnlyBeverage(List<Order> elements) {
-        int notBeverageMenuCount = elements.stream()
-                .filter(Order::isNotBeverage)
-                .toList()
-                .size();
-        if (notBeverageMenuCount == DEFAULT_COUNT) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
-        }
-    }
-
-    private void validateDuplicateMenu(List<Order> elements) {
-        Set<String> notDuplicateElements = new HashSet<>(elements.stream()
-                .map(Order::getMenuName)
-                .toList());
-        if (notDuplicateElements.size() != elements.size()) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
-        }
-    }
-
-    private void validateMaxOrder(List<Order> elements) {
-        int totalCount = elements.stream()
-                .mapToInt(Order::getQuantity)
-                .sum();
-        if (totalCount > MAX_COUNT) {
-            throw new IllegalArgumentException(ExceptionMessage.INVALID_MENU.getMessage());
-        }
+        this.elements = new ArrayList<>(orderMenus.getElements());
     }
 
     public int getTotalPrice() {
