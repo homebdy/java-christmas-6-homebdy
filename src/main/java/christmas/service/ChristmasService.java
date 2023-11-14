@@ -1,6 +1,5 @@
 package christmas.service;
 
-import christmas.constant.Menu;
 import christmas.domain.*;
 
 import java.util.List;
@@ -11,7 +10,7 @@ public class ChristmasService {
     private final Discounts discounts;
 
     public ChristmasService(Date date, List<Order> orders) {
-        this.eventPlanner = new EventPlanner(new Orders(date, orders), new Gift(Menu.CHAMPAGNE));
+        this.eventPlanner = new EventPlanner(new Orders(date, orders));
         this.discounts = new Discounts();
         applyEvent();
     }
@@ -21,6 +20,7 @@ public class ChristmasService {
         eventPlanner.applyDiscount(discounts.getWeekdayDiscount());
         eventPlanner.applyDiscount(discounts.getWeekendDiscount());
         eventPlanner.applyDiscount(discounts.getSpecialDiscount());
+        eventPlanner.applyGift(discounts.getChampagneGift());
     }
 
     public EventPlanner getEventPlanner() {

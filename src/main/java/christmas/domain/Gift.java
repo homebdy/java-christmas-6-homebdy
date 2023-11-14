@@ -7,10 +7,12 @@ public class Gift {
 
     private static final int DEFAULT_COUNT = 0;
     private final Menu menu;
+    private final int applicationPrice;
     private int quantity;
 
-    public Gift(Menu menu) {
+    public Gift(Menu menu, int applicationPrice) {
         this.menu = menu;
+        this.applicationPrice = applicationPrice;
         this.quantity = DEFAULT_COUNT;
     }
 
@@ -20,6 +22,10 @@ public class Gift {
 
     public int getGiftPrice() {
         return quantity * menu.getPrice();
+    }
+
+    public boolean isGift(int price) {
+        return price >= applicationPrice;
     }
 
     public String display() {

@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.constant.Badge;
+import christmas.constant.Menu;
 import christmas.constant.OutputMessage;
 
 public class EventPlanner {
@@ -11,13 +12,17 @@ public class EventPlanner {
     private final Gift gift;
     private int benefitAmount = 0;
 
-    public EventPlanner(Orders orders, Gift gift) {
+    public EventPlanner(Orders orders) {
         this.orders = orders;
-        this.gift = gift;
+        this.gift = new Gift(Menu.CHAMPAGNE, GIFT_AMOUNT);
     }
 
     public void applyDiscount(DiscountPolicy discountPolicy) {
         benefitAmount += discountPolicy.getDiscountAmount(orders);
+    }
+
+    public void applyGift(GiftPolicy giftPolicy) {
+        benefitAmount += giftPolicy.getGiftAmount(gift, orders);
     }
 
     private int getTotalPriceIncludeGift() {

@@ -8,6 +8,7 @@ public class Discounts {
     private final DiscountPolicy weekdayDiscount = new WeekdayDiscount();
     private final DiscountPolicy weekendDiscount = new WeekendDiscount();
     private final DiscountPolicy specialDiscount = new SpecialDiscount();
+    private final GiftPolicy champagneGift = new ChampagneGift();
 
     public DiscountPolicy getDDayDiscount() {
         return dDayDiscount;
@@ -25,6 +26,10 @@ public class Discounts {
         return specialDiscount;
     }
 
+    public GiftPolicy getChampagneGift() {
+        return champagneGift;
+    }
+
     public String display() {
         if (!hasApplyDiscount()) {
             return OutputMessage.NOTHING.getMessage();
@@ -34,6 +39,7 @@ public class Discounts {
         appendWeekdayDiscount(stringBuilder);
         appendWeekendDiscount(stringBuilder);
         appendSpecialDiscount(stringBuilder);
+        appendChampagneGift(stringBuilder);
         return stringBuilder.toString();
     }
 
@@ -63,6 +69,12 @@ public class Discounts {
     private void appendSpecialDiscount(StringBuilder stringBuilder) {
         if (specialDiscount.isApply()) {
             stringBuilder.append(specialDiscount.display());
+        }
+    }
+
+    private void appendChampagneGift(StringBuilder stringBuilder) {
+        if (champagneGift.isApply()) {
+            stringBuilder.append(champagneGift.display());
         }
     }
 }
