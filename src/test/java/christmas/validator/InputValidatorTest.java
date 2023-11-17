@@ -17,7 +17,7 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> validator.validateNumber(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-    
+
     @Test
     @DisplayName("형식에 맞지 않는 입력이 들어온 경우 예외를 발생시킨다.")
     void validatorDelimeter() {

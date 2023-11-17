@@ -22,7 +22,7 @@ public class ChampagneGiftTest {
 
         assertThat(giftAmount).isEqualTo(Menu.CHAMPAGNE.getPrice());
     }
-    
+
     @Test
     @DisplayName("120000원 이하 구매의 경우 증정품을 받지 못한다.")
     void receiveNothing() {

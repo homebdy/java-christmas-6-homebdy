@@ -16,7 +16,7 @@ public class DateTest {
         assertThatThrownBy(() -> new Date(day))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-    
+
     @Test
     @DisplayName("날짜가 크리스마스 이전일 경우 true를 반환한다.")
     void returnTrueBeforeChristmas() {

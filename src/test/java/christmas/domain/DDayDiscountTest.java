@@ -8,7 +8,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DDayDiscountTest {
-    
+
     @Test
     @DisplayName("12월 1일부터 디데이 할인 이벤트를 1000원부터 시작한다.")
     void getDiscountAmount() {
